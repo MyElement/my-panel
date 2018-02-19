@@ -22,7 +22,11 @@
       <h3>Basic my-panel demo</h3>
       <demo-snippet>
         <template>
-          <my-panel></my-panel>
+          <my-panel>
+            <div slot="header">Header</div>
+            <div slot="body">Body</div>
+            <div slot="footer">Footer</div>
+          </my-panel>
         </template>
       </demo-snippet>
     </div>
