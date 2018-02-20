@@ -1,31 +1,48 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../my-style/my-style.html">
 
 <dom-module id="my-panel">
   <template>
-    <style>
+    <style include="my-style">
       .panel{
-        border: 1px solid #ddd;
-        color:#333;
+        border-style: solid;
+        border-width: 1px;
         border-radius: 4px;
       }
       .panel-header,.panel-body,.panel-footer{
          padding: 10px 15px;
       }
-      .panel-header,.panel-footer{
-        background-color: #f5f5f5;
-      }
       .panel-header{
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid transparent;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
       }
       .panel-footer{
-        border-top: 1px solid #ddd;
+        border-top: 1px solid transparent;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
       }
+
+      .panel-default{
+        color:#333;
+        border-color:#ddd;
+      }
+      .panel-default>.panel-header,.panel-default>.panel-footer{
+        border-color:#ddd;
+        background-color: #f5f5f5;
+      }
+      
+      .panel-primary{
+        color:var(--bg-color-white);
+        border-color:var(--bg-color-primary);
+      }
+      .panel-primary>.panel-header,.panel-primary>.panel-footer{
+        border-color:var(--bg-color-primary);
+        background-color: var(--bg-color-primary);
+      }
+
     </style>
-    <div class="panel">
+    <div class="panel panel-default">
       <div class="panel-header"><slot name="header"></slot></div>
       <div class="panel-body"><slot name="body"></slot></div>
       <div class="panel-footer"><slot name="footer"></slot></div>
@@ -33,24 +50,16 @@
   </template>
 
   <script>
-    /**
-     * `my-panel`
-     * 
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
     class MyPanel extends Polymer.Element {
       static get is() { return 'my-panel'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'my-panel'
-          }
-        };
-      }
+      // static get properties() {
+      //   return {
+      //     prop1: {
+      //       type: String,
+      //       value: 'my-panel'
+      //     }
+      //   };
+      // }
     }
 
     window.customElements.define(MyPanel.is, MyPanel);
