@@ -3,7 +3,7 @@
   "main": "my-panel.html",
   "dependencies": {
     "polymer": "Polymer/polymer#2",
-    "my-style": "my-element/my-style#0 - 1"
+    "my-style": "MyElement/my-style#0 - 1"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
